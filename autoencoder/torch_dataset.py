@@ -28,7 +28,7 @@ class CustomDataset(Dataset):
         self.data = self.data[self.data["stage"] == stage]
 
         self.default_transforms = Compose(
-            [Resize((size, size)), ToTensor(), Normalize(mean=[0.5], std=[0.5])]
+            [Resize((size, size)), ToTensor(), Normalize(mean=[0.5] * 3, std=[0.5] * 3)]
         )
 
         self.augment_transforms = Compose(
@@ -38,7 +38,7 @@ class CustomDataset(Dataset):
                 RandomRotation(degrees=15),
                 ColorJitter(brightness=0.2, contrast=0.2, saturation=0.2, hue=0.05),
                 ToTensor(),
-                Normalize(mean=[0.5], std=[0.5]),
+                Normalize(mean=[0.5] * 3, std=[0.5] * 3),
             ]
         )
 
