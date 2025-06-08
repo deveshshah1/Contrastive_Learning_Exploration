@@ -1,0 +1,1 @@
+Here we implement an auto encoder without any contrastive learning. This is our baseline for which we will use to compare results against. Ideally contrastive methods should perform far better for this project.
