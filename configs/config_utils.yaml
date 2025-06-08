@@ -1,0 +1,7 @@
+dataset_images_base_path:
+  desc: Base path for dataset images
+  value: "/Users/deveshshah/Documents/Programming/Contrastive_Learning_Exploration/dataset/img_align_celeba"
+
+dataset_labels_path:
+  desc: Base path for dataset labels
+  value: "/Users/deveshshah/Documents/Programming/Contrastive_Learning_Exploration/dataset/dataset.csv"
