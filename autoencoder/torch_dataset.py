@@ -52,6 +52,7 @@ class CustomDataset(Dataset):
 
     def __getitem__(self, idx):
         row = self.data.iloc[idx]
+        sample_id = row["sample_id"]
         image_path = f"{self.images_base_path}/{row['image_path']}"
         label = row["label"]
 
@@ -62,7 +63,7 @@ class CustomDataset(Dataset):
         else:
             image = self.default_transforms(image)
 
-        return {"image": image, "label": label}
+        return {"sample_id": sample_id, "image": image, "label": label}
 
 
 if __name__ == "__main__":
@@ -73,5 +74,6 @@ if __name__ == "__main__":
 
     item = dataset[idx]
     print(f"Item at index {idx}:")
+    print("Sample ID:", item["sample_id"])
     print("Image shape:", item["image"].shape)
     print("Label:", item["label"])

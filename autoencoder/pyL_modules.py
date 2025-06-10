@@ -74,10 +74,16 @@ class PyLModel(pl.LightningModule):
         return loss
 
     def predict_step(self, batch):
-        x, y = batch["image"], batch["label"]
+        x, y, sample_ids = batch["image"], batch["label"], batch["sample_id"]
         self.model.eval()
         x_recon, emb = self.forward(x)
-        return {"img": x, "img_reconstructed": x_recon, "embedding": emb, "label": y}
+        return {
+            "img": x,
+            "img_reconstructed": x_recon,
+            "embedding": emb,
+            "label": y,
+            "sample_id": sample_ids,
+        }
 
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(
