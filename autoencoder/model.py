@@ -59,7 +59,7 @@ class Decoder(nn.Module):
         self.fc = nn.Linear(latent_dim, 512 * 4 * 4) # (latent_dim,) -> (512 * 4 * 4,) = (8192,)
 
         self.decoder = nn.Sequential(
-            nn.ConvTranspose2d(512, 512, kernel_size=4, stride=1, padding=1), # (512, 4, 4) -> (512, 8, 8)
+            nn.ConvTranspose2d(512, 512, kernel_size=4, stride=2, padding=1), # (512, 4, 4) -> (512, 8, 8)
             nn.ReLU(inplace=True),
             ResidualBlock(512),
 
