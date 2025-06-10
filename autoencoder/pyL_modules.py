@@ -37,13 +37,15 @@ class PyLDataModule(pl.LightningDataModule):
 
 
 class PyLModel(pl.LightningModule):
-    def __init__(self, stage: str):
+    def __init__(self):
         super().__init__()
-        self.stage = stage
         self.model = Autoencoder(latent_dim=128)
         self.loss_fxn = torch.nn.MSELoss()
         self.lr = 1e-3
         self.weight_decay = 1e-5
+
+    def on_fit_start(self):
+        print(f"[Lightning] Training on device: {self.device}")
 
     def forward(self, x):
         x_recon, emb = self.model(x)

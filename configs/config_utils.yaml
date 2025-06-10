@@ -5,3 +5,11 @@ dataset_images_base_path:
 dataset_labels_path:
   desc: Base path for dataset labels
   value: "/Users/deveshshah/Documents/Programming/Contrastive_Learning_Exploration/dataset/dataset.csv"
+
+model_dir:
+  desc: Directory to save the model
+  value: "./trained_models/"
+
+exp_name:
+  desc: Name of the experiment
+  value: "autoencoder_exp1"
