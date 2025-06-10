@@ -1,5 +1,4 @@
 import yaml
-import torch
 import pytorch_lightning as pl
 from pyL_modules import PyLDataModule, PyLModel
 from pytorch_lightning.callbacks import ModelCheckpoint, ModelSummary
