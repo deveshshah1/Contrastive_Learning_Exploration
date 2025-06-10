@@ -25,7 +25,8 @@ class CustomDataset(Dataset):
         self.images_base_path = config_utils["dataset_images_base_path"]
 
         self.data = pd.read_csv(config_utils["dataset_labels_path"])
-        self.data = self.data[self.data["stage"] == stage]
+        if stage != "ALL":
+            self.data = self.data[self.data["stage"] == stage]
 
         self.default_transforms = Compose(
             [Resize((size, size)), ToTensor(), Normalize(mean=[0.5] * 3, std=[0.5] * 3)]
